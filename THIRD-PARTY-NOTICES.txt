@@ -1,0 +1,12 @@
+CartaCAD uses the following third-party software.
+
+OpenCascade Technology (OCCT), via replicad-opencascadejs
+  Licence: GNU LGPL 2.1 with the Open CASCADE exception.
+  Full text: LICENSE-LGPL-2.1.txt in this directory.
+  The compiled library ships as the separate file replicad_single.wasm
+  so that it may be replaced, as LGPL 2.1 requires.
+
+replicad and replicad-threejs-helper
+  Licence: MIT, Copyright QuaroTech Sarl.
+
+three.js - MIT.
