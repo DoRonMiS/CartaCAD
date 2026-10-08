@@ -1,3 +1,4 @@
+/*! CartaCAD 3-D kernel bundle. Contains replicad (MIT, Copyright 2023 QuaroTech Sarl), opentype.js (MIT, Copyright (c) 2020 Frederik De Bleser), tiny-inflate (MIT, Copyright (c) 2015-present Devon Govett), string.prototype.codepointat (MIT, Copyright Mathias Bynens), Flatbush and FlatQueue (ISC, Copyright (c) Vladimir Agafonkin), and the loader of Open CASCADE Technology (LGPL-2.1 with the Open CASCADE exception) built with Emscripten (MIT). Full notices and licence texts: THIRD-PARTY-NOTICES.txt and LICENSE-LGPL-2.1.txt beside this file. */
 var __defProp = Object.defineProperty;
 var __export = (target, all) => {
   for (var name in all)
@@ -6735,6 +6736,7 @@ var sketchHelix = (pitch, height, radius, center = [
 var require___vite_browser_external = /* @__PURE__ */ __commonJSMin(((exports2, module) => {
   module.exports = {};
 }));
+/*! https://mths.be/codepointat v0.2.0 by @mathias */
 if (!String.prototype.codePointAt) (function() {
   var defineProperty = (function() {
     try {
@@ -22371,8 +22373,3 @@ export {
   bootKernel,
   replicad_exports as replicad
 };
-/*! Bundled license information:
-
-replicad/dist/replicad.js:
-  (*! https://mths.be/codepointat v0.2.0 by @mathias *)
-*/
