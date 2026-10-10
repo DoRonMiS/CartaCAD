@@ -5,7 +5,7 @@ var __export = (target, all) => {
     __defProp(target, name, { get: all[name], enumerable: true });
 };
 
-// node_modules/replicad/dist/replicad.js
+// vendor-out/replicad-patched/replicad.js
 var replicad_exports = {};
 __export(replicad_exports, {
   AXIS_NAMES: () => AXIS_NAMES,
@@ -182,7 +182,7 @@ __export(replicad_exports, {
   weldShellsAndFaces: () => weldShellsAndFaces
 });
 
-// node_modules/replicad/dist/casting-rs4QjB74.js
+// vendor-out/replicad-patched/casting-rs4QjB74.js
 var OC = { library: null };
 var setOC = (oc) => {
   OC.library = oc;
@@ -1335,18 +1335,19 @@ var asTopo = (entity) => definitions().shapeEnum[entity];
 var downcastTo = (shape, entity) => definitions().downcast[entity](shape);
 function* iterTopo(shape, topo) {
   const explorer = new (getOC()).TopExp_Explorer(shape, asTopo(topo), asTopo("shape"));
+  const seen = [];
   try {
-    const seen = [];
     while (explorer.More()) {
       const item = explorer.Current();
       if (!seen.some((s) => s.IsSame(item))) {
         seen.push(item);
         yield downcastTo(item, topo);
-      }
+      } else item.delete();
       explorer.Next();
     }
   } finally {
     explorer.delete();
+    for (const s of seen) s.delete();
   }
 }
 var shapeType = (shape) => {
@@ -1583,7 +1584,7 @@ function makeCaster(constructors) {
   };
 }
 
-// node_modules/replicad/dist/replicad.js
+// vendor-out/replicad-patched/replicad.js
 var __commonJSMin = (cb, mod) => () => (mod || (cb((mod = { exports: {} }).exports, mod), cb = null), mod.exports);
 function isPoint2D(point) {
   return Array.isArray(point) && point.length === 2;
@@ -4047,7 +4048,7 @@ var _3DShape = class extends Shape {
   * @category Shape Modifications
   */
   fuse(other, options = {}) {
-    const newShape = cast(fuseShapes(this.wrapped, other.wrapped, options));
+    const newShape = castFree(fuseShapes(this.wrapped, other.wrapped, options));
     if (!isShape3D(newShape)) throw new Error("Could not fuse as a 3d shape");
     return newShape;
   }
@@ -4057,7 +4058,7 @@ var _3DShape = class extends Shape {
   * @category Shape Modifications
   */
   cut(tool, options = {}) {
-    const newShape = cast(cutShape(this.wrapped, tool.wrapped, options));
+    const newShape = castFree(cutShape(this.wrapped, tool.wrapped, options));
     if (!isShape3D(newShape)) throw new Error("Could not cut as a 3d shape");
     return newShape;
   }
@@ -4067,7 +4068,7 @@ var _3DShape = class extends Shape {
   * @category Shape Modifications
   */
   intersect(tool) {
-    const newShape = cast(intersectShapes(this.wrapped, tool.wrapped));
+    const newShape = castFree(intersectShapes(this.wrapped, tool.wrapped));
     if (!isShape3D(newShape)) throw new Error("Could not intersect as a 3d shape");
     return newShape;
   }
@@ -4266,7 +4267,15 @@ var cast = makeCaster({
   compound: Compound
 });
 var makeLine = (v1, v2) => {
-  return new Edge(new (getOC()).BRepBuilderAPI_MakeEdge(asPnt(v1), asPnt(v2)).Edge());
+  const [r, gc] = localGC();
+  const shape = new Edge(r(new (getOC()).BRepBuilderAPI_MakeEdge(r(asPnt(v1)), r(asPnt(v2)))).Edge());
+  gc();
+  return shape;
+};
+var castFree = (raw) => {
+  const shape = cast(raw);
+  if (shape && shape.wrapped !== raw) raw.delete();
+  return shape;
 };
 var makeCircle = (radius, center = [
   0,
@@ -4330,8 +4339,11 @@ var makeHelix = (pitch, height, radius, center = [
 };
 var makeThreePointArc = (v1, v2, v3) => {
   const oc = getOC();
-  const curve = new oc.GC_MakeArcOfCircle(asPnt(v1), asPnt(v2), asPnt(v3)).Value();
-  return new Edge(new oc.BRepBuilderAPI_MakeEdge(curve).Edge());
+  const [r, gc] = localGC();
+  const curve = r(r(new oc.GC_MakeArcOfCircle(r(asPnt(v1)), r(asPnt(v2)), r(asPnt(v3)))).Value());
+  const shape = new Edge(r(new oc.BRepBuilderAPI_MakeEdge(curve)).Edge());
+  gc();
+  return shape;
 };
 var makeEllipseArc = (majorRadius, minorRadius, startAngle, endAngle, center = [
   0,
@@ -22369,7 +22381,11 @@ async function bootKernel(wasmUrl) {
   setOC(oc);
   return replicad_exports;
 }
+function freshOC(wasmUrl) {
+  return replicad_single_default({ locateFile: () => wasmUrl });
+}
 export {
   bootKernel,
+  freshOC,
   replicad_exports as replicad
 };

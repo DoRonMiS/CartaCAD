@@ -3403,8 +3403,8 @@ You may replace replicad_single.wasm with a build of your own, modified or not: 
 
 קוד המקור של הרכיב שברישיון LGPL
 
-הקובץ replicad_single.wasm הוא Open CASCADE Technology שהודרה ל-WebAssembly, בדיוק כפי שפורסמה בחבילת ה-npm ‏replicad-opencascadejs 1.1.0; לא שינינו אותה. קוד המקור התואם לו הוא קוד המקור של Open CASCADE Technology ‏(https://dev.opencascade.org וגם https://github.com/Open-Cascade-SAS/OCCT), כלי הבנייה opencascade.js שבהם הודר (תמונת הקונטיינר ghcr.io/taucad/opencascade.js:canary-ebd263f1-single-threaded), והגדרות הבנייה בפרויקט replicad ‏(https://github.com/sgenoud/replicad, בתיקייה packages/replicad-opencascadejs, ב-commit ‏e4b05f67dc4e2393a876ce8c5064a9c93db05bf1).
+הקובץ replicad_single.wasm מכיל את ספריית Open CASCADE Technology כשהיא מהודרת ל-WebAssembly, בדיוק כפי שפורסמה בחבילת ה-npm ‏replicad-opencascadejs 1.1.0, ללא כל שינוי מצדנו. קוד המקור התואם כולל את קוד המקור של Open CASCADE Technology ‏(https://dev.opencascade.org וכן https://github.com/Open-Cascade-SAS/OCCT), כלי הבנייה של opencascade.js שבאמצעותם הודר הקובץ (תמונת הקונטיינר ghcr.io/taucad/opencascade.js:canary-ebd263f1-single-threaded), והגדרות הבנייה בפרויקט replicad ‏(https://github.com/sgenoud/replicad, בתיקייה packages/replicad-opencascadejs, ב-commit ‏e4b05f67dc4e2393a876ce8c5064a9c93db05bf1).
 
-לפי בקשה לכתובת cartacad.contact@gmail.com נשלח לך עותק מלא של קוד המקור הזה, במשך שלוש שנים לפחות מהיום שבו קיבלת את הקובץ, ללא תשלום מעבר לעלות המשלוח.
+על פי בקשה שתישלח לכתובת cartacad.contact@gmail.com, יישלח אליך עותק מלא של קוד מקור זה, למשך שלוש שנים לפחות ממועד קבלת הקובץ, ללא עלות מעבר לעלות העברת המידע.
 
-מותר לך להחליף את replicad_single.wasm בגרסה שבנית בעצמך, עם שינויים או בלעדיהם: האפליקציה טוענת אותו מאותה תיקייה שבה נמצא index.html.
+באפשרותך להחליף את replicad_single.wasm בגרסה שנבנתה על ידך, בין אם הוכנסו בה שינויים ובין אם לאו: היישום טוען את הקובץ מאותה תיקייה שבה נמצא index.html.
