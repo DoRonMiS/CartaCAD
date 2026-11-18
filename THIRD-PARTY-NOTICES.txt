@@ -102,7 +102,7 @@ qrcode-generator vendored (qrcode.mjs)
   Home      : https://github.com/kazuhikoarase/qrcode-generator
   Ships in  : the page (index.html)
   Used for  : Encodes the QR code printed on the papercraft sheet.
-  Note      : Embedded verbatim in the application source; only the export keywords were removed and the top-level name changed.
+  Note      : Embedded verbatim in the application source; only the export keywords were removed, the top-level name changed, and two small methods added so the application can choose the mask.
 
 MIT License
 
