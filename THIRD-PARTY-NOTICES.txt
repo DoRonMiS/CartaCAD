@@ -1324,36 +1324,6 @@ OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ------------------------------------------------------------------------
-pico its "facefinder" cascade (github.com/nenadmarkus/pico)
-  Licence   : MIT
-  Copyright : Copyright (c) 2013 Nenad Markus
-  Home      : https://github.com/nenadmarkus/pico
-  Ships in  : the page (index.html)
-  Used for  : Finds the face in front of the screen, for the screen as a window: its trained cascade of decision trees, run by CartaCAD’s own port of the method. The camera’s pictures never leave the page.
-
-The MIT License
-
-Copyright (c) 2013 Nenad Markus
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-------------------------------------------------------------------------
 Rubik Google Fonts (via @expo-google-fonts)
   Licence   : SIL Open Font License 1.1
   Copyright : Copyright 2015 The Rubik Project Authors (https://github.com/googlefonts/rubik)
@@ -3639,6 +3609,6 @@ You may replace replicad_single.wasm with a build of your own, modified or not: 
 
 הקובץ replicad_single.wasm מכיל את ספריית Open CASCADE Technology כשהיא מהודרת ל-WebAssembly, בדיוק כפי שפורסמה בחבילת ה-npm ‏replicad-opencascadejs 1.1.0, ללא כל שינוי מצדנו. קוד המקור התואם כולל את קוד המקור של Open CASCADE Technology ‏(https://dev.opencascade.org וכן https://github.com/Open-Cascade-SAS/OCCT), כלי הבנייה של opencascade.js שבאמצעותם הודר הקובץ (תמונת הקונטיינר ghcr.io/taucad/opencascade.js:canary-ebd263f1-single-threaded), והגדרות הבנייה בפרויקט replicad ‏(https://github.com/sgenoud/replicad, בתיקייה packages/replicad-opencascadejs, ב-commit ‏e4b05f67dc4e2393a876ce8c5064a9c93db05bf1).
 
-על פי בקשה שתישלח לכתובת cartacad.contact@gmail.com, יישלח אליך עותק מלא של קוד מקור זה, למשך שלוש שנים לפחות ממועד קבלת הקובץ, ללא עלות מעבר לעלות העברת המידע.
+על פי בקשה שתישלח לכתובת cartacad.contact@gmail.com, יישלח אליכם עותק מלא של קוד מקור זה, למשך שלוש שנים לפחות ממועד קבלת הקובץ, ללא עלות מעבר לעלות העברת המידע.
 
-באפשרותך להחליף את replicad_single.wasm בגרסה שנבנתה על ידך, בין אם הוכנסו בה שינויים ובין אם לאו: היישום טוען את הקובץ מאותה תיקייה שבה נמצא index.html.
+באפשרותכם להחליף את replicad_single.wasm בגרסה שבניתם בעצמכם, בין אם הוכנסו בה שינויים ובין אם לאו: היישום טוען את הקובץ מאותה תיקייה שבה נמצא index.html.
